@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
+import transition from 'styled-transition-group';
 
-const FilterContacts = ({handleFilter}) => {
+const FilterContacts = ({ handleFilter }) => {
+    
     const onFilterChng = (e) => {
-        handleFilter(e.target.value)
-    } 
+         handleFilter(e.target.value)
+    }; 
 
     return (
         <>
+        <Div in={true} timeout={250} appear>
         <Label> Find contacts by name:
         <Input name="filter" type="search" onChange={onFilterChng}/>
         </Label> 
+        </Div>
         </>
     )
 
@@ -24,10 +29,10 @@ FilterContacts.propTypes = {
 
 const Input = styled.input`
 display: block;
-width: 300px;
-height: 30px;
+width: 100%;
+height: 40px;
 margin-top: 10px;
-margin-bottom: 10px;
+margin-bottom: 25px;
 padding: 10px;
 border: 1px solid lightblue;
 font-weight: 400;
@@ -42,3 +47,29 @@ const Label = styled.label`
 margin-top: 10px;
 font-weight: 500;
 `;
+
+const Div = transition.div.attrs({
+  timeout: 250,
+})`
+&:appear {
+    transform: translateX(-100%); 
+}
+&:appear-active {
+  transform: translateX(0);
+  transition: all 250ms ease-in;  
+}
+&:enter { 
+    transform: translateX(-100%); 
+}
+&:enter-active {
+    transform: translateX(0);
+  transition: all 250ms ease-in;
+}
+&:exit {
+    transform: translateX(0);
+}
+&:exit-active {
+    transform: translateX(200%);
+    transition: all 250ms ease-in;
+}
+  `;

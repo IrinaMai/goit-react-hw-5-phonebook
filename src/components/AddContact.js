@@ -43,16 +43,18 @@ export default class AddContacts extends Component {
 };
 
 const Form = styled.form`
-border: 1px solid SteelBlue;
-width: 350px;
+/* border: 1px solid SteelBlue; */
+width: 100%;
 padding: 10px;
+padding: 0;
 /* box-shadow: 1px 1px 10px 1px steelblue; */
 `;
 
 const Input = styled.input`
+color: steelblue;
 display: block;
-width: 300px;
-height: 30px;
+width: 100%;
+height: 40px;
 margin-top: 10px;
 margin-bottom: 10px;
 padding: 10px;
@@ -64,6 +66,7 @@ outline: none;
     border: 2px solid SteelBlue;
     box-shadow: 1px 1px 10px 1px steelblue;
     }
+
 `;
 
 const Label = styled.label`
@@ -72,6 +75,10 @@ font-weight: 500;
 `;
 
 const Button = styled.button`
+font-weight: bold;
+color: steelblue;
+width: 100%;
+height: 40px;
 margin-top: 10px;
 margin-bottom: 10px;
 border: 1px solid lightblue;
